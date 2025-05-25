@@ -11,6 +11,8 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Progress } from "@/components/ui/progress"
+import { getJobRecommendations } from "@/lib/recommendJobs"
+import { useSearchParams } from "next/navigation"
 
 export default function Assessment() {
   const router = useRouter()
@@ -26,6 +28,7 @@ export default function Assessment() {
     salary: "",
     additionalInfo: "",
   })
+console.log(formData);
 
   const totalSteps = 5
   const progress = (currentStep / totalSteps) * 100
@@ -72,17 +75,28 @@ export default function Assessment() {
     }
   }
 
-  const handleSubmit = () => {
-    setIsSubmitting(true)
+const handleSubmit = async () => {
+  setIsSubmitting(true)
 
-    // Simulate API call to analyze skills and generate recommendations
-    setTimeout(() => {
-      // In a real app, you would send the data to your backend for AI analysis
-      // For this demo, we'll just redirect to the results page
-      setIsSubmitting(false)
-      router.push("/dashboard/jobs")
-    }, 3000)
+  const assessmentData = {
+    skills: formData.skills,
+    interests: formData.interests,
+    preferences: {
+      location: formData.location,
+      salaryRange: formData.salary,
+    },
   }
+
+  try {
+    const recommendedJobs = await getJobRecommendations(assessmentData)
+
+  router.push(`/dashboard/predicted-results?ids=${recommendedJobs.map(j => j.id).join(",")}`)
+  } catch (error) {
+    console.error("Prediction failed:", error)
+  } finally {
+    setIsSubmitting(false)
+  }
+}
 
   return (
     <div className="max-w-3xl mx-auto">

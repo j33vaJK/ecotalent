@@ -22,80 +22,80 @@ import { Slider } from "@/components/ui/slider"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-
+import jobsData from "@/data/jobsData";
 // Sample job data
-const jobsData = [
-  {
-    id: 1,
-    title: "Sustainability Coordinator",
-    company: "EcoSolutions Inc.",
-    location: "San Francisco, CA",
-    type: "Full-time",
-    salary: "$65,000 - $85,000",
-    match: 95,
-    description:
-      "Lead sustainability initiatives and help reduce our company's environmental footprint. Develop and implement green strategies across departments.",
-    skills: ["Project Management", "Sustainability", "Data Analysis", "Communication"],
-    posted: "2 days ago",
-    remote: false,
-  },
-  {
-    id: 2,
-    title: "Renewable Energy Analyst",
-    company: "Green Power Co.",
-    location: "Remote",
-    type: "Full-time",
-    salary: "$70,000 - $90,000",
-    match: 88,
-    description:
-      "Analyze renewable energy projects and provide insights on efficiency and implementation. Work with solar and wind energy data.",
-    skills: ["Data Analysis", "Renewable Energy", "Research", "Technical Writing"],
-    posted: "1 week ago",
-    remote: true,
-  },
-  {
-    id: 3,
-    title: "Environmental Consultant",
-    company: "Sustainable Future Ltd.",
-    location: "Boston, MA",
-    type: "Contract",
-    salary: "$50 - $70 per hour",
-    match: 82,
-    description:
-      "Provide expert advice on environmental regulations and sustainability practices. Help clients reduce their environmental impact.",
-    skills: ["Consulting", "Environmental Science", "Regulatory Knowledge", "Problem Solving"],
-    posted: "3 days ago",
-    remote: false,
-  },
-  {
-    id: 4,
-    title: "Green Building Specialist",
-    company: "EcoArchitects",
-    location: "Chicago, IL",
-    type: "Full-time",
-    salary: "$75,000 - $95,000",
-    match: 79,
-    description:
-      "Oversee LEED certification processes and sustainable building practices. Collaborate with architects and construction teams.",
-    skills: ["LEED", "Green Building", "Project Management", "Technical Knowledge"],
-    posted: "5 days ago",
-    remote: false,
-  },
-  {
-    id: 5,
-    title: "Sustainable Supply Chain Manager",
-    company: "GreenLogistics",
-    location: "Remote",
-    type: "Full-time",
-    salary: "$85,000 - $110,000",
-    match: 76,
-    description:
-      "Optimize supply chain operations with a focus on sustainability and reduced environmental impact. Implement green logistics solutions.",
-    skills: ["Supply Chain", "Logistics", "Sustainability", "Leadership"],
-    posted: "2 weeks ago",
-    remote: true,
-  },
-]
+// const jobsData = [
+//   {
+//     id: 1,
+//     title: "Sustainability Coordinator",
+//     company: "EcoSolutions Inc.",
+//     location: "San Francisco, CA",
+//     type: "Full-time",
+//     salary: "$65,000 - $85,000",
+//     match: 95,
+//     description:
+//       "Lead sustainability initiatives and help reduce our company's environmental footprint. Develop and implement green strategies across departments.",
+//     skills: ["Project Management", "Sustainability", "Data Analysis", "Communication"],
+//     posted: "2 days ago",
+//     remote: false,
+//   },
+//   {
+//     id: 2,
+//     title: "Renewable Energy Analyst",
+//     company: "Green Power Co.",
+//     location: "Remote",
+//     type: "Full-time",
+//     salary: "$70,000 - $90,000",
+//     match: 88,
+//     description:
+//       "Analyze renewable energy projects and provide insights on efficiency and implementation. Work with solar and wind energy data.",
+//     skills: ["Data Analysis", "Renewable Energy", "Research", "Technical Writing"],
+//     posted: "1 week ago",
+//     remote: true,
+//   },
+//   {
+//     id: 3,
+//     title: "Environmental Consultant",
+//     company: "Sustainable Future Ltd.",
+//     location: "Boston, MA",
+//     type: "Contract",
+//     salary: "$50 - $70 per hour",
+//     match: 82,
+//     description:
+//       "Provide expert advice on environmental regulations and sustainability practices. Help clients reduce their environmental impact.",
+//     skills: ["Consulting", "Environmental Science", "Regulatory Knowledge", "Problem Solving"],
+//     posted: "3 days ago",
+//     remote: false,
+//   },
+//   {
+//     id: 4,
+//     title: "Green Building Specialist",
+//     company: "EcoArchitects",
+//     location: "Chicago, IL",
+//     type: "Full-time",
+//     salary: "$75,000 - $95,000",
+//     match: 79,
+//     description:
+//       "Oversee LEED certification processes and sustainable building practices. Collaborate with architects and construction teams.",
+//     skills: ["LEED", "Green Building", "Project Management", "Technical Knowledge"],
+//     posted: "5 days ago",
+//     remote: false,
+//   },
+//   {
+//     id: 5,
+//     title: "Sustainable Supply Chain Manager",
+//     company: "GreenLogistics",
+//     location: "Remote",
+//     type: "Full-time",
+//     salary: "$85,000 - $110,000",
+//     match: 76,
+//     description:
+//       "Optimize supply chain operations with a focus on sustainability and reduced environmental impact. Implement green logistics solutions.",
+//     skills: ["Supply Chain", "Logistics", "Sustainability", "Leadership"],
+//     posted: "2 weeks ago",
+//     remote: true,
+//   },
+// ]
 
 export default function JobMatches() {
   const [searchTerm, setSearchTerm] = useState("")

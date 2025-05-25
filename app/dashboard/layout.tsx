@@ -23,7 +23,7 @@ export default function DashboardLayout({
 
 
   const handleLogOut = async () => {
-    console.log('calling signOut');
+
     
     await signOut(auth)
     router.push("/sign-in")
